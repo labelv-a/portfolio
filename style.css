@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'Arial Narrow Italic';
+    src: url('font/subset-ArialNarrow-Italic.woff2') format('woff2'),
+         url('font/subset-ArialNarrow-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-stretch: condensed;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial Narrow';
+    src: url('font/subset-ArialNarrow.woff2') format('woff2'),
+         url('font/subset-ArialNarrow.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: condensed;
+    font-display: swap;
+}
+
 :root {
     /* Colori */
     --mittente-bg: #1c1c1c;
