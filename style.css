@@ -455,7 +455,9 @@ a::hover {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
+.uno {
+        margin-top: 0.9em;
+}
 .chat-box::-webkit-scrollbar {
     display: none;
 }
@@ -723,7 +725,7 @@ img {
 }
 
 .prima {
-    height: 99vh;
+    height: 99dvh;
     display: grid;
 }
 
@@ -1117,6 +1119,7 @@ img.ultima-immagine {
     .overlay {
         overflow-y: auto;
         overflow-x: hidden;
+        height: 100dvh;
     }
 
     .overlay-content {
@@ -1128,7 +1131,7 @@ img.ultima-immagine {
 
     .blocco-testo.prima {
         position: static;
-        height: 89vh;
+        height: 89dvh;
         width: 100%;
         flex: unset;
     }
@@ -1273,6 +1276,8 @@ img.ultima-immagine {
     .overlay {
         overflow-y: auto;
         overflow-x: hidden;
+        height: 100dvh;
+
     }
 
     .overlay-content {
