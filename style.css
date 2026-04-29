@@ -76,6 +76,10 @@ b {
     font-family: "Arial Narrow", sans-serif, bold;
 }
 
+s {
+    text-decoration: line-through 3px solid black;
+}
+
 main {
     margin: 0;
     position: relative;
