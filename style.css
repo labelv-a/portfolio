@@ -114,8 +114,13 @@ img {
     /* min-height: 50vh; */
 }
 
-  0%   { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+0% {
+    background-position: 200% 0;
+}
+
+100% {
+    background-position: -200% 0;
+}
 
 footer {
     padding: 0.8em;
@@ -265,6 +270,7 @@ a::hover {
     align-self: center;
     align-content: center;
     justify-self: center;
+    /* justify-content: center; */
     height: var(--chat-height);
     width: calc(var(--chat-height) * (800 / 1567));
     aspect-ratio: 800 / 1567;
@@ -379,12 +385,12 @@ a::hover {
     align-content: center;
     flex-direction: row;
 }
+
 .editorial-group img {
     cursor: pointer;
 }
-.editorial-group img:hover,
-.editorial-group img:active,
-.editorial-group img:focus {
+
+.editorial-group img:hover, .editorial-group img:active, .editorial-group img:focus {
     cursor: pointer;
 }
 
@@ -433,11 +439,11 @@ a::hover {
     overflow-y: auto;
     overflow-x: clip;
     width: 86%;
-    height: 65%;
+    height: 67%;
     /* top: 2em; */
     justify-self: center;
     /* padding: 0.3em; */
-    margin: 7% 0 0 0;
+    margin: 7% auto 0 auto;
     mix-blend-mode: exclusion;
     background-color: #ffffff;
     z-index: 85;
@@ -1244,11 +1250,9 @@ img.ultima-immagine {
         text-indent: 0;
     }
 
-.sfondo-telefono {
-    height: 100dvh;
-}
-
-
+    .sfondo-telefono {
+        height: 100dvh;
+    }
 }
 
 /* Mobile medio, tablet e smatphone */
@@ -1370,11 +1374,10 @@ img.ultima-immagine {
         height: auto;
         max-height: 60vw;
     }
-    
-    .sfondo-telefono {
-    height: 100dvh;
-}
 
+    .sfondo-telefono {
+        height: 100dvh;
+    }
 }
 
 /* Desktop */
@@ -1484,10 +1487,12 @@ img.ultima-immagine {
         line-height: 1.4;
         padding: var(--padding-base);
     }
+
     .editorial-group {
         padding: 6em 0 2em 0;
     }
-    .primaimmagine{
+
+    .primaimmagine {
         padding: 2em 0 0 0;
     }
 
