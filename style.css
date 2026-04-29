@@ -49,6 +49,7 @@
     --overlay-columns: repeat(15, minmax(10px, 1fr));
     /* Chat */
     --chat-width: 25%;
+    --chat-height: 65dvh;
     text-wrap-style: pretty;
     scroll-behavior: smooth;
 }
@@ -264,13 +265,14 @@ a::hover {
     align-self: center;
     align-content: center;
     justify-self: center;
-    width: var(--chat-width);
+    height: var(--chat-height);
+    width: calc(var(--chat-height) * (800 / 1567));
+    aspect-ratio: 800 / 1567;
     rotate: -2deg;
-    aspect-ratio: 12.95/25.3;
     background-image: url(img/iphone-rotto.png);
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 51.8px;
+    border-radius: 41.8px;
     border: none;
     position: fixed;
     box-shadow: inset -1px -2px 15px 1px #18181866, 0 0px 20px 9px #7f7f7f63;
@@ -429,16 +431,17 @@ a::hover {
 
 .chat-box {
     overflow-y: auto;
-    left: -2em;
-    margin: 49px 12px 34px 12px;
     overflow-x: clip;
-    padding: 0.3em;
+    width: 86%;
+    height: 65%;
+    /* top: 2em; */
+    justify-self: center;
+    /* padding: 0.3em; */
+    margin: 7% 0 0 0;
     mix-blend-mode: exclusion;
-    aspect-ratio: 14 / 21.2;
     background-color: #ffffff;
     z-index: 85;
     backdrop-filter: brightness(1.5);
-    /* box-shadow: inset 0 0 8px 7px #75757538, 0 0px 16px 1px #fcfcfc63; */
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -1240,22 +1243,12 @@ img.ultima-immagine {
         padding-top: 1em;
         text-indent: 0;
     }
-    .chat {
-        border-radius: 41.8px;
-    }
+
 .sfondo-telefono {
     height: 100dvh;
 }
 
-.chat {
-    height: 65dvh;
-    width: auto;
-}
 
-.chat-box {
-    margin: 9.5% 7% 4.5% 6.5%;
-    aspect-ratio: 14 / 21.2;
-}
 }
 
 /* Mobile medio, tablet e smatphone */
@@ -1377,21 +1370,11 @@ img.ultima-immagine {
         height: auto;
         max-height: 60vw;
     }
-    .chat{
-        border-radius: 39.8px;
-    }
+    
     .sfondo-telefono {
     height: 100dvh;
 }
 
-.chat {
-    height: 65dvh;
-    width: auto;
-}
-
-.chat-box {
-    margin: 10.5% 6% 3.5% 6%;
-}
 }
 
 /* Desktop */
@@ -1401,14 +1384,6 @@ img.ultima-immagine {
         --font-size-base: 1.7em;
         --font-size-small: 1.07em;
         --chat-width: 16em;
-    }
-
-    .chat-box {
-        margin: 51px 17px 37px 14px;
-        aspect-ratio: 14.86 / 22.4;
-    }
-    .chat{
-        border-radius: 41.8px;
     }
 
     .welcome {
@@ -1496,12 +1471,6 @@ img.ultima-immagine {
         --font-size-base: 1.65em;
         --chat-width: 19em;
         --font-size-small: 1.13em;
-    }
-
-    .chat-box {
-        margin: 51px 17px 37px 14px;
-        padding: 0.6em;
-        aspect-ratio: 14.86 / 22.4;
     }
 
     .welcome {
