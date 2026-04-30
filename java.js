@@ -409,6 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll(".hover-item");
 
     if (!preview || !items.length) return;
+    if (window.matchMedia("(hover: none)").matches) return;
 
     items.forEach(item => {
         item.addEventListener("mouseenter", () => {
