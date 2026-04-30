@@ -25,10 +25,10 @@
     --page-background: #f0efeb;
     --secondo-colore: #cccccc;
     /* Tipografia */
-    --font-size-large: 2em;
-    --font-size-base: 1.4em;
-    --font-size-small: 0.99em;
-    --font-size-extrasmall: 0.7em;
+    --font-size-large: 2rem;
+    --font-size-base: 1.4rem;
+    --font-size-small: 0.99rem;
+    --font-size-extrasmall: 0.7rem;
     /* Spaziature */
     --padding-base: 0.8em;
     --gap-griglia: 9px;
@@ -66,7 +66,17 @@ body {
     scroll-behavior: smooth;
     margin: 0;
 }
-
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
 i {
     font-family: "Arial Narrow", sans-serif, cursive;
     font-style: italic;
@@ -90,6 +100,11 @@ p {
     margin: 0;
     margin-block-start: 0; font-size: var(--font-size-small);
 }
+h2{
+   font-size: var(--font-size-large);
+   margin: 0;
+   font-weight: normal;
+}
 
 h3 {
     font-size: var(--font-size-large);
@@ -106,24 +121,6 @@ img {
     -moz-user-drag: none;
     -o-user-drag: none;
     cursor: auto;
-    /* background: linear-gradient(
-        90deg,
-        var(--secondo-colore) 25%,
-        #b4b3b3 50%,
-        var(--secondo-colore) 75%
-    ); */
-    background-size: 200% 100%;
-    animation: shimmer 1.4s infinite;
-    /* min-width: 80%; */
-    /* min-height: 50vh; */
-}
-
-0% {
-    background-position: 200% 0;
-}
-
-100% {
-    background-position: -200% 0;
 }
 
 footer {
@@ -886,7 +883,7 @@ body.dimmed::before {
     right: 0;
     top: 0;
     width: fit-content;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-large);
     color: #000;
     text-decoration: none;
     margin: var(--padding-base);
@@ -1106,8 +1103,8 @@ img.ultima-immagine {
 /* Mobile extra Small */
 @media screen and (max-width: 480px) {
     :root {
-        --font-size-base: 1.4em;
-        --font-size-large: 1.2em;
+        --font-size-base: 1.4rem;
+        --font-size-large: 1.4rem;
         --chat-width: 14em;
         --griglia-columns: repeat(1, minmax(10px, 1fr));
         --overlay-columns: repeat(3, minmax(10px, 1fr));
@@ -1265,8 +1262,8 @@ img.ultima-immagine {
 /* Mobile medio, tablet e smatphone */
 @media screen and (min-width: 481px) and (max-width: 768px) {
     :root {
-        --font-size-base: 1.59em;
-        --font-size-large: 1.3em;
+        --font-size-base: 1.59rem;
+        --font-size-large: 1.5rem;
         --chat-width: 14em;
         --griglia-columns: repeat(1, minmax(10px, 1fr));
         --overlay-columns: repeat(3, minmax(10px, 1fr));
@@ -1294,7 +1291,7 @@ img.ultima-immagine {
     .blocco-testo.prima {
         position: static;
         height: auto;
-        width: 100%;
+        width: 99%;
         flex: unset;
     }
 
@@ -1315,7 +1312,7 @@ img.ultima-immagine {
         line-height: 1.4em;
         padding: var(--padding-base);
         position: relative;
-        grid-column: 1 / span 4;
+        grid-column: 1 / span 5;
     }
 
     .contact-group {
@@ -1331,7 +1328,7 @@ img.ultima-immagine {
     }
 
     .blocco-testo:first-of-type {
-        min-height: 98vh;
+        min-height: 90dvh;
         grid-column: 1 / span 3;
         grid-row: 1 / span 2;
     }
@@ -1392,8 +1389,8 @@ img.ultima-immagine {
 /* Desktop */
 @media screen and (min-width: 769px) and (max-width:1440px) {
     :root {
-        --font-size-large: 1.5em;
-        --font-size-base: 1.7em;
+        --font-size-large: 1.9rem;
+        --font-size-base: 1.7rem;
         --font-size-small: 1.07em;
         --chat-width: 16em;
     }
@@ -1454,7 +1451,7 @@ img.ultima-immagine {
     }
 
     .overlay-right .blocco-testo, .overlay-right .info-prog {
-        width: 100%;
+        width: 100dvw;
         grid-column: unset;
         grid-row: unset;
     }
@@ -1465,8 +1462,8 @@ img.ultima-immagine {
 
     .blocco-testo-img.verticale {
         width: auto;
-        height: 100%;
-        max-height: 100vh;
+        height: 80dvh;
+        max-height: 100dvh;
     }
 
     .blocco-testo-img.orizzontale {
@@ -1479,10 +1476,10 @@ img.ultima-immagine {
 /* Large desktop */
 @media screen and (min-width: 1441px) {
     :root {
-        --font-size-large: 1.3em;
-        --font-size-base: 1.65em;
+        --font-size-large: 2rem;
+        --font-size-base: 1.65rem;
         --chat-width: 19em;
-        --font-size-small: 1.13em;
+        --font-size-small: 1.34rem;
     }
 
     .welcome {
