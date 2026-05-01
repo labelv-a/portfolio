@@ -1426,7 +1426,7 @@ img.ultima-immagine {
     /* colonna sinistra fissa */
     .blocco-testo.prima {
         flex: 0 0 40%;
-        height: 100vh;
+        height: 100dvh;
         overflow: hidden;
         padding: var(--gap-griglia);
         box-sizing: border-box;
@@ -1439,7 +1439,7 @@ img.ultima-immagine {
     /* colonna destra scrollabile */
     .overlay-right {
         flex: 1;
-        height: 100vh;
+        height: 100dvh;
         overflow-y: auto;
         overflow-x: hidden;
         padding: var(--gap-griglia);
@@ -1451,7 +1451,7 @@ img.ultima-immagine {
     }
 
     .overlay-right .blocco-testo, .overlay-right .info-prog {
-        width: 100dvw;
+        width: 100%;
         grid-column: unset;
         grid-row: unset;
     }
