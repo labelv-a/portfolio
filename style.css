@@ -299,7 +299,7 @@ a::hover {
     padding: 0.4em 0.5em;
     margin-left: 0.4em;
     margin-right: 0.4em;
-    font-size: 0.92em;
+    font-size: var(--font-size-small);
     border-radius: 1em;
     border: solid 0.08em var(--destinatario-bg);
     z-index: 1;
@@ -1479,7 +1479,7 @@ img.ultima-immagine {
         --font-size-large: 2rem;
         --font-size-base: 1.65rem;
         --chat-width: 19em;
-        --font-size-small: 1.34rem;
+        --font-size-small: 1.17rem;
     }
 
     .welcome {
