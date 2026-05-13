@@ -8,7 +8,7 @@ const CLOSE_BUTTON_DELAY = parseInt(cssVars.getPropertyValue('--close-button-del
 document.addEventListener("DOMContentLoaded", () => {
     const checkboxes = document.querySelectorAll('input[type="checkbox"][data-target]');
 
-    checkboxes.forEach((cb) => {
+    checkboxes.forEach( (cb) => {
         const targets = document.querySelectorAll('.' + cb.dataset.target);
         if (!targets.length)
             return;
@@ -26,10 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     el.classList.add("visible");
                 }
             }
-        });
+        }
+        );
 
         const showElements = () => {
-            targets.forEach((el, i) => {
+            targets.forEach( (el, i) => {
                 el.style.display = "";
                 if (el.classList.contains("sfondo-telefono")) {
                     el.classList.add("visible");
@@ -45,11 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 el.style.animationDelay = `${baseDelay + i * stagger}s`;
 
                 el.classList.add("fade-in-up");
-            });
-        };
+            }
+            );
+        }
+        ;
 
         const hideElements = () => {
-            targets.forEach((el, i) => {
+            targets.forEach( (el, i) => {
                 el.classList.remove("fade-in-up");
 
                 const baseDelay = 0;
@@ -65,19 +68,24 @@ document.addEventListener("DOMContentLoaded", () => {
                         el.classList.remove("visible");
                     }
                     el.removeEventListener("animationend", handler);
-                };
+                }
+                ;
 
-                el.addEventListener("animationend", handler, { once: true });
-            });
-        };
+                el.addEventListener("animationend", handler, {
+                    once: true
+                });
+            }
+            );
+        }
+        ;
 
         cb.addEventListener("change", () => {
             if (cb.checked) {
-                checkboxes.forEach((other) => {
+                checkboxes.forEach( (other) => {
                     if (other !== cb && other.checked) {
                         other.checked = false;
                         const otherTargets = document.querySelectorAll("." + other.dataset.target);
-                        otherTargets.forEach((el, i) => {
+                        otherTargets.forEach( (el, i) => {
                             el.classList.remove("fade-in-up");
                             el.style.animationDelay = `${i * 0.15}s`;
                             el.classList.add("fade-out-down");
@@ -89,21 +97,29 @@ document.addEventListener("DOMContentLoaded", () => {
                                     el.classList.remove("visible");
                                 }
                                 el.removeEventListener("animationend", handler);
-                            };
+                            }
+                            ;
 
-                            el.addEventListener("animationend", handler, { once: true });
-                        });
+                            el.addEventListener("animationend", handler, {
+                                once: true
+                            });
+                        }
+                        );
                     }
-                });
+                }
+                );
                 showElements();
             } else {
                 hideElements();
             }
-        });
+        }
+        );
 
-        targets.forEach((el) => (el.hidden = !cb.checked));
-    });
-});
+        targets.forEach( (el) => (el.hidden = !cb.checked));
+    }
+    );
+}
+);
 
 // --- Grid Visibility Toggle ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -128,17 +144,19 @@ document.addEventListener("DOMContentLoaded", () => {
             grid.style.display = "grid";
             grid.classList.remove("hidden-grid");
             grid.classList.remove("fade-out-down");
-            setTimeout(() => {
+            setTimeout( () => {
                 grid.classList.add("fade-in-up");
-            }, 10);
+            }
+            , 10);
 
             if (globalBackBtn) {
-                setTimeout(() => {
+                setTimeout( () => {
                     globalBackBtn.classList.remove("hidden");
                     globalBackBtn.classList.remove("fade-out-down");
                     void globalBackBtn.offsetWidth;
                     globalBackBtn.classList.add("fade-in-up");
-                }, 300);
+                }
+                , 300);
             }
         } else {
             grid.classList.remove("fade-in-up");
@@ -154,19 +172,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 grid.style.display = "none";
                 grid.classList.add("hidden-grid");
                 grid.removeEventListener("animationend", handler);
-            };
-            grid.addEventListener("animationend", handler, { once: true });
+            }
+            ;
+            grid.addEventListener("animationend", handler, {
+                once: true
+            });
         }
-    };
+    }
+    ;
 
     checkbox.addEventListener("change", updateGridVisibility);
-});
+}
+);
 
 // --- Overlay Logic (CON SCROLL RESET) ---
 document.addEventListener("DOMContentLoaded", () => {
     const projects = document.querySelectorAll(".progetto");
 
-    projects.forEach((proj) => {
+    projects.forEach( (proj) => {
         proj.addEventListener("click", () => {
             const projId = proj.id;
             const overlay = document.getElementById(`overlay-${projId}`);
@@ -184,10 +207,11 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.classList.remove("fade-out-down");
             overlay.classList.remove("is-closing");
 
-            requestAnimationFrame(() => {
+            requestAnimationFrame( () => {
                 overlay.classList.add("show");
                 overlay.classList.add("fade-in-up");
-            });
+            }
+            );
 
             if (globalCloseBtn) {
                 globalCloseBtn.classList.remove("hidden");
@@ -207,10 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (globalCloseBtn)
                     globalCloseBtn.classList.add("active");
 
-                setTimeout(() => {
+                setTimeout( () => {
                     // Usa classe is-closing per bloccare i pointer events via CSS
                     overlay.classList.add("is-closing");
-                    if (overlayContent) overlayContent.style.pointerEvents = "none";
+                    if (overlayContent)
+                        overlayContent.style.pointerEvents = "none";
                     overlay.classList.remove("show");
                     overlay.classList.remove("fade-in-up");
                     overlay.classList.add("fade-out-down");
@@ -227,23 +252,30 @@ document.addEventListener("DOMContentLoaded", () => {
                         globalCloseBtn.classList.remove("active");
                     }
 
-                    setTimeout(() => {
+                    setTimeout( () => {
                         overlay.classList.remove("is-open");
                         overlay.classList.remove("is-closing");
                         overlay.classList.remove("fade-out-down");
                         overlay.classList.add("hidden");
-                        if (overlayContent) overlayContent.style.pointerEvents = "";
-                    }, ANIMATION_HIDE_DELAY);
-                }, CLOSE_BUTTON_DELAY);
-            };
+                        if (overlayContent)
+                            overlayContent.style.pointerEvents = "";
+                    }
+                    , ANIMATION_HIDE_DELAY);
+                }
+                , CLOSE_BUTTON_DELAY);
+            }
+            ;
 
             if (closeBtn) {
                 closeBtn.removeEventListener("click", closeHandler);
                 closeBtn.addEventListener("click", closeHandler);
             }
-        });
-    });
-});
+        }
+        );
+    }
+    );
+}
+);
 
 // --- Global Close Button ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -259,12 +291,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         globalCloseBtn.classList.add("active");
 
-        setTimeout(() => {
+        setTimeout( () => {
             const overlayContent = openOverlay.querySelector(".overlay-content");
             const activeProject = document.querySelector(".progetto.active");
 
             openOverlay.classList.add("is-closing");
-            if (overlayContent) overlayContent.style.pointerEvents = "none";
+            if (overlayContent)
+                overlayContent.style.pointerEvents = "none";
             openOverlay.classList.remove("show");
             openOverlay.classList.remove("fade-in-up");
             openOverlay.classList.add("fade-out-down");
@@ -279,16 +312,21 @@ document.addEventListener("DOMContentLoaded", () => {
             globalCloseBtn.classList.remove("fade-in-up");
             globalCloseBtn.classList.remove("active");
 
-            setTimeout(() => {
+            setTimeout( () => {
                 openOverlay.classList.remove("is-open");
                 openOverlay.classList.remove("is-closing");
                 openOverlay.classList.remove("fade-out-down");
                 openOverlay.classList.add("hidden");
-                if (overlayContent) overlayContent.style.pointerEvents = "";
-            }, ANIMATION_HIDE_DELAY);
-        }, CLOSE_BUTTON_DELAY);
-    });
-});
+                if (overlayContent)
+                    overlayContent.style.pointerEvents = "";
+            }
+            , ANIMATION_HIDE_DELAY);
+        }
+        , CLOSE_BUTTON_DELAY);
+    }
+    );
+}
+);
 
 // --- Global Back From Griglia ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -301,30 +339,38 @@ document.addEventListener("DOMContentLoaded", () => {
     globalBackBtn.addEventListener("click", () => {
         globalBackBtn.classList.add("active");
 
-        setTimeout(() => {
+        setTimeout( () => {
             editorialCheckbox.checked = false;
             editorialCheckbox.dispatchEvent(new Event("change"));
-        }, CLOSE_BUTTON_DELAY);
-    });
-});
+        }
+        , CLOSE_BUTTON_DELAY);
+    }
+    );
+}
+);
 
 // --- Intersection Observer per mostrare descrizioni su mobile ---
 document.addEventListener("DOMContentLoaded", () => {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    if (!isMobile) return;
+    if (!isMobile)
+        return;
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver( (entries) => {
         entries.forEach(entry => {
             const desc = entry.target.closest(".editorial-group")?.querySelector(".divdesc");
             if (entry.isIntersecting) {
-                if (desc) desc.style.opacity = "1";
+                if (desc)
+                    desc.style.opacity = "1";
                 entry.target.classList.add("visible");
             } else {
-                if (desc) desc.style.opacity = "0";
+                if (desc)
+                    desc.style.opacity = "0";
                 entry.target.classList.remove("visible");
             }
-        });
-    }, {
+        }
+        );
+    }
+    ,{
         threshold: 0.5,
         rootMargin: "0px"
     });
@@ -332,7 +378,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const observeImages = () => {
         const images = document.querySelectorAll(".griglia-lavori .progetto");
         images.forEach(img => observer.observe(img));
-    };
+    }
+    ;
 
     observeImages();
 
@@ -342,9 +389,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (editorialCheckbox.checked) {
                 setTimeout(observeImages, 50);
             }
-        });
+        }
+        );
     }
-});
+}
+);
 
 // --- Back Button per chiudere la chat ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -355,14 +404,17 @@ document.addEventListener("DOMContentLoaded", () => {
         backButton.addEventListener("click", () => {
             backButton.classList.add("active");
 
-            setTimeout(() => {
+            setTimeout( () => {
                 backButton.classList.remove("active");
                 aboutCheckbox.checked = false;
                 aboutCheckbox.dispatchEvent(new Event('change'));
-            }, CLOSE_BUTTON_DELAY);
-        });
+            }
+            , CLOSE_BUTTON_DELAY);
+        }
+        );
     }
-});
+}
+);
 
 // --- Back Button per chiudere la griglia lavori ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -373,14 +425,17 @@ document.addEventListener("DOMContentLoaded", () => {
         backButton.addEventListener("click", () => {
             backButton.classList.add("active");
 
-            setTimeout(() => {
+            setTimeout( () => {
                 backButton.classList.remove("active");
                 editorialCheckbox.checked = false;
                 editorialCheckbox.dispatchEvent(new Event('change'));
-            }, CLOSE_BUTTON_DELAY);
-        });
+            }
+            , CLOSE_BUTTON_DELAY);
+        }
+        );
     }
-});
+}
+);
 
 // --- Overlay: wrap colonna destra per scroll indipendente ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -388,41 +443,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
     overlays.forEach(overlay => {
         const content = overlay.querySelector(".overlay-content");
-        if (!content) return;
+        if (!content)
+            return;
 
         const prima = content.querySelector(".blocco-testo.prima");
-        if (!prima) return;
+        if (!prima)
+            return;
 
         const rightItems = [...content.children].filter(el => el !== prima);
-        if (!rightItems.length) return;
+        if (!rightItems.length)
+            return;
 
         const wrapper = document.createElement("div");
         wrapper.className = "overlay-right";
         rightItems.forEach(item => wrapper.appendChild(item));
         content.appendChild(wrapper);
-    });
-});
+    }
+    );
+}
+);
 
 // --- immagini hover ---
 document.addEventListener("DOMContentLoaded", () => {
     const preview = document.getElementById("preview");
     const items = document.querySelectorAll(".hover-item");
 
-    if (!preview || !items.length) return;
-    if (window.matchMedia("(hover: none)").matches) return;
+    if (!preview || !items.length)
+        return;
+    if (window.matchMedia("(hover: none)").matches)
+        return;
 
     items.forEach(item => {
         item.addEventListener("mouseenter", () => {
             preview.src = item.dataset.img;
             preview.style.opacity = 1;
-        });
+        }
+        );
         item.addEventListener("mouseleave", () => {
             preview.style.opacity = 0;
-        });
-    });
+        }
+        );
+    }
+    );
 
     document.addEventListener("mousemove", e => {
         preview.style.top = e.clientY + 20 + "px";
         preview.style.left = e.clientX + 20 + "px";
-    });
-});
+    }
+    );
+}
+);
+
+// --- Selezione testo: colora label::before ---
+document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('selectionchange', () => {
+        const selection = window.getSelection();
+        const labels = document.querySelectorAll('label');
+
+        labels.forEach(label => {
+            const isSelected = selection && selection.toString().length > 0 && selection.containsNode(label, true);
+
+            label.classList.toggle('is-selected', !!isSelected);
+        }
+        );
+    }
+    );
+}
+);
