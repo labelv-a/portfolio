@@ -440,7 +440,7 @@ a::hover {
 }
 
 .editorial-group:nth-child(5) {
-    grid-row: 8 / span 3;
+    grid-row: 9 / span 3;
     grid-column: 2 / span 3;
 }
 
@@ -1117,10 +1117,7 @@ img.blocco-testo-img {
 
 .freccia {
     display: block;
-}
-
-.freccia2 {
-    margin-top: 1.5rem;
+    padding: 0.6em 0 0.3em 0;
 }
 
 img.ultima-immagine {
@@ -1134,7 +1131,9 @@ img.ultima-immagine {
 @media screen and (max-width: 480px) {
     :root {
         --font-size-base: 1.4rem;
-        --font-size-large: 1.4rem;
+        --font-size-large: 1.5rem;
+        --font-size-small: 0.93rem;
+        --font-size-subtitles: 1rem;
         --chat-width: 14em;
         --griglia-columns: repeat(1, minmax(10px, 1fr));
         --overlay-columns: repeat(3, minmax(10px, 1fr));
@@ -1294,6 +1293,7 @@ img.ultima-immagine {
     :root {
         --font-size-base: 1.59rem;
         --font-size-large: 1.5rem;
+        --font-size-subtitles: 1.16rem;
         --chat-width: 14em;
         --griglia-columns: repeat(1, minmax(10px, 1fr));
         --overlay-columns: repeat(3, minmax(10px, 1fr));
@@ -1421,6 +1421,7 @@ img.ultima-immagine {
         --font-size-large: 1.9rem;
         --font-size-base: 1.7rem;
         --font-size-small: 1.07em;
+        --font-size-subtitles: 1.25rem;
         --chat-width: 16em;
     }
 
@@ -1507,6 +1508,7 @@ img.ultima-immagine {
     :root {
         --font-size-large: 2rem;
         --font-size-base: 1.65rem;
+        --font-size-subtitles: 1.3rem;
         --chat-width: 19em;
         --font-size-small: 1.17rem;
     }
@@ -1524,11 +1526,13 @@ img.ultima-immagine {
     }
 
     .editorial-group {
-        padding: 6em 0 2em 0;
+        padding: 5em 0 1em 0;
+        height: 88dvh;
     }
 
     .primaimmagine {
         padding: 2em 0 0 0;
+        height: 98dvh;
     }
 
     img.blocco-testo-img {
